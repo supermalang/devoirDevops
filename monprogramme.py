@@ -56,7 +56,7 @@ def git_commit(nb_commits = 5):
     os.system("git init")
 
     for i in range(nb_commits):
-        # faire une modification alleatoire
+        # faire une modification alleatoire.
         f = open("README.md", "a")
         f.write("Modification {}".format(i))
         f.close()
