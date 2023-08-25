@@ -13,6 +13,7 @@ def main():
     else:
         # on execute creer_arborescence
         creer_arborescence(chemin)
+        git_commit()
 
 
 # Creation de l'arborescence
@@ -45,6 +46,24 @@ def creer_arborescence(chemin):
 
     os.mkdir(chemin + "/ src")
     os.mkdir(chemin + "/ src/utils.py")
+
+# fonction qui fait au minimum 5 commits git
+def git_commit(nb_commits = 5):
+    if nb_commits < 5:
+        nb_commits = 5
+
+    # initialiser git
+    os.system("git init")
+
+    for i in range(nb_commits):
+        # faire une modification alleatoire
+        f = open("README.md", "a")
+        f.write("Modification {}".format(i))
+        f.close()
+
+        # faire un commit
+        os.system("git add .")
+        os.system("git commit -m 'commit {}'".format(i))
 
 # call main
 if __name__ == "__main__":
